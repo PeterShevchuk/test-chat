@@ -1,0 +1,72 @@
+.contacts {
+  outline: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.contact {
+  padding: 30px 20px;
+  border-bottom: 1px solid #cccccc;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-column-gap: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+@keyframes pulsing {
+  0% {
+    background-color: #ffffff;
+  }
+  30% {
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+.newNotification {
+  -webkit-animation: pulsing 3s infinite;
+  animation: pulsing 3s infinite;
+}
+.lastMessage {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+}
+.contact:hover {
+  background-color: #f5f5f5;
+}
+.photo {
+  position: relative;
+}
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.contact__photo {
+  border-radius: 50px;
+}
+.date {
+  margin-left: auto;
+}
+.title {
+  display: flex;
+}
+.addNewContact {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 40px 0;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #f5f5f5;
+}
+@media (min-width: 747px) {
+  .contact {
+    margin-right: -1px;
+    border-right: 1px solid #cccccc;
+  }
+}

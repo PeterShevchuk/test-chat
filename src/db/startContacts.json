@@ -1,0 +1,80 @@
+[{
+    "id": "IoVRAFlOKBTrdg5WNodi",
+    "name": "Bill gates",
+    "addDate": 1603612345490,
+    "photo": "https://cdn.forbes.ru/files/presets/900_566/profile/bill_gates.jpg__1583763919__51130__vid688423e.jpg",
+    "history": [
+      {
+        "author": false,
+        "date": 1603602345490,
+        "message": "Why did you steal the idea and copy the Mac?"
+      },
+      {
+        "author": true,
+        "date": 1603602688955,
+        "message": "Well, Steve, I think you can look at this question from the other side. It's more like if we both had a wealthy neighbor named Xerox, and I would sneak into his house to steal the TV and find that you have already stolen it."
+      }
+    ],
+    "status": true,
+    "newNotification": false
+  },
+  {
+    "id": "V7YQsN9JYhHK5bYTEHlh",
+    "name": "Alisa Freeman",
+    "addDate": 1603612345490,
+    "photo": "https://pbs.twimg.com/profile_images/911001805353500673/kPXHNvuW_400x400.jpg",
+    "history": [
+      {
+        "author": false,
+        "date": 1603612345490,
+        "message": "Hi, how are you?"
+      },
+      {
+        "author": true,
+        "date": 1603612688954,
+        "message": "Hi, i a'm fine, and how are you?"
+      }
+    ],
+    "status": true,
+    "newNotification": false
+  },
+  {
+    "id": "Uf0gdyfaFOKHXbnUAYKN",
+    "name": "Jozefina",
+    "addDate": 1603612340490,
+    "photo": "https://vokrug-tv.ru/pic/person/1/7/d/a/17da0d895eb5ba538ffa20891ba90f6c.jpg",
+    "history": [
+      {
+        "author": true,
+        "date": 1603612688953,
+        "message": "Hi"
+      }
+    ],
+    "status": true,
+    "newNotification": false
+  },
+  {
+    "id": "G5emxyMOwITjujzZxx8a",
+    "name": "Bob",
+    "addDate": 1603612346490,
+    "photo": "https://scontent.flwo3-1.fna.fbcdn.net/v/t1.0-9/119751943_10157549124473341_7249463074917259033_o.jpg?_nc_cat=110&ccb=2&_nc_sid=09cbfe&_nc_ohc=BZ9Wm2Z1uOYAX8YVW6O&_nc_ht=scontent.flwo3-1.fna&oh=65faf79aa223ac0c691e37abb86aef11&oe=5FBBDA7D",
+    "history": [],
+    "status": false,
+    "newNotification": false
+  },
+  {
+    "id": "3334va4vacasfasavewrSEVAYA43",
+    "name": "Roman",
+    "addDate": 1603612346490,
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Roman_Reigns_Tribute_to_the_Troops_2016.jpg/274px-Roman_Reigns_Tribute_to_the_Troops_2016.jpg",
+    "history": [
+      {
+        "author": true,
+        "date": 1603612688952,
+        "message": "Hello"
+      }
+    ],
+    "status": false,
+    "newNotification": false
+  }
+]

@@ -1,0 +1,115 @@
+/* Message */
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px 20px;
+  border-bottom: 1px solid #cccccc;
+  background-color: #f5f5f5;
+}
+.meesageSend {
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #cccccc;
+}
+.meesageSendInput {
+  background-color: #ffffff;
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+}
+.meesageSendInput input {
+  background: none;
+  width: 100%;
+  padding: 20px 0;
+  border: 0;
+  outline: 0;
+}
+.meesageSendInput button {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+.messagesHistory {
+  padding: 30px 10px;
+  background-color: #fafafa;
+  overflow-y: scroll;
+}
+
+.photo {
+  position: relative;
+}
+.photo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.profileName {
+  margin-left: 20px;
+}
+.messageSend {
+  fill: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s linear;
+}
+.messageSend:hover {
+  fill: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+.messagesHistoryMess {
+  text-align: right;
+  list-style: none;
+  margin-bottom: 20px;
+}
+.messagesHistoryMessAuthor {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-gap: 0 10px;
+  text-align: left;
+}
+/* .messagesHistoryBlock {
+  padding: 10px;
+} */
+.messagesHistoryText {
+  background-color: #e0e0e0;
+  padding: 15px 20px;
+  border-radius: 20px;
+  display: inline-block;
+}
+.messagesHistoryMessAuthor .messagesHistoryText {
+  background-color: #3c4252;
+  color: #ffffff;
+  font-weight: 600;
+}
+.messagesHistoryMessAuthor .photo {
+  margin-right: 10px;
+}
+
+.messageDate {
+  font-size: 10px;
+  margin: 0 20px;
+}
+.noMessages {
+  text-align: center;
+  text-transform: uppercase;
+}
+.options {
+  margin-left: auto;
+}
+.options > * {
+  cursor: pointer;
+}
+.options > *:first-child {
+  margin-right: 20px;
+}
