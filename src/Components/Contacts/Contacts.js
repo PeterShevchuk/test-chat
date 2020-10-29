@@ -20,6 +20,11 @@ const Contacts = ({ filter }) => {
   };
   return (
     <div className={styles.contacts}>
+      {filter.search.length > 0 && (
+        <button className={styles.addNewContact} onClick={addNewContact}>
+          <h3>Contact not found</h3> Add new contact? "{filter.search}"
+        </button>
+      )}
       {filter.contacts.length ? (
         sortContacts().map((item) => (
           <NavLink key={item.id} to={`${navigation.home + "/" + item.id}`} exact className={styles.contact + (item.newNotification ? " " + styles.newNotification : "")} activeClassName={styles.active}>
@@ -35,10 +40,6 @@ const Contacts = ({ filter }) => {
             </div>
           </NavLink>
         ))
-      ) : filter.search ? (
-        <button className={styles.addNewContact} onClick={addNewContact}>
-          <h3>Contact not found</h3> Add new contact? "{filter.search}"
-        </button>
       ) : (
         <h3> No Contacts, type to search name for add new contact</h3>
       )}
