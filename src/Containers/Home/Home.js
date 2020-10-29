@@ -15,16 +15,18 @@ const noMessage = () => {
 };
 
 const Home = () => {
+  const { user, contacts } = useSelector((state) => state.session);
+  const { windowSize } = useSelector((state) => state.global);
+  const [showMess, setShowMess] = useState(false);
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.session);
-  const { contacts } = useSelector((state) => state.session);
   const [search, setSearch] = useState("");
   const filterContacts = () => {
     return contacts.filter((contact) => contact.name.toUpperCase().includes(search.toUpperCase()) || contact.history.some((mess) => mess.message.toUpperCase().includes(search.toUpperCase())));
   };
+  // useEffect(() => setShowMess(windowSize > 746), [windowSize]);
   return (
     <div className={styles.home}>
-      <div className={styles.left}>
+      <div className={styles.left + " " + (showMess && windowSize < 746 && styles.showMess)}>
         <div className={styles.leftTop}>
           <div className={styles.profile}>
             {user.photo ? (
@@ -37,7 +39,7 @@ const Home = () => {
             )}
             <h3 className={styles.profileName}>{user.name}</h3>
             <div className={styles.exitButton} onClick={() => dispatch(loginOut())}>
-              <Icons.Exit size={30} />
+              <Icons.Exit size="30" />
             </div>
           </div>
           <div className={styles.search}>
@@ -45,11 +47,11 @@ const Home = () => {
           </div>
         </div>
         <h2 className={styles.title}>Chats</h2>
-        <Contacts contacts={filterContacts()} filter={{ search, setSearch }} />
+        <Contacts filter={{ search, setSearch, contacts: filterContacts() }} />
       </div>
-      <div className={styles.right}>
+      <div className={styles.right + " " + (!showMess && windowSize < 746 && styles.showMess)}>
         <Switch>
-          <Route path={navigation.home + "/:id"} component={Message} />
+          <Route path={navigation.home + "/:id"} render={(props) => <Message {...props} showMess={{ showMess, setShowMess }} />} />
           <Route path={navigation.home} component={noMessage} />
         </Switch>
       </div>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 import { parseDate, randomJoke, randomArbitrary } from "../../vars";
 import { sendMessage, seeHistory, deleteContactHistory, deleteContact } from "../../Redux/Slice";
 
 import Icons from "../../Components/SVG/svg";
 import styles from "./Message.module.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const autoReply = (id) => (dispatch) => {
   let message;
@@ -16,22 +17,25 @@ const autoReply = (id) => (dispatch) => {
   }, randomArbitrary(5000, 20000));
 };
 
-const Message = ({ match }) => {
+const Message = ({ showMess }) => {
+  const { windowSize } = useSelector((state) => state.global);
   const [messageHistory, setMessageHistory] = useState({});
   const dispatch = useDispatch();
+  const params = useParams();
   const history = useHistory();
   const [newMessage, setNewMessage] = useState("");
   const { contacts } = useSelector((state) => state.session);
   useEffect(() => {
-    const parse = match.url.split("/");
-    const findContact = contacts.find((item) => item.id === parse[2]);
+    showMess.setShowMess(false);
+    const findContact = contacts.find((item) => item.id === params.id);
     if (!findContact) {
       history.push(`/chat/`);
       return;
     }
+    showMess.setShowMess(true);
     setMessageHistory(findContact);
-    dispatch(seeHistory(parse[2]));
-  }, [match.url, contacts, dispatch, history]);
+    dispatch(seeHistory(params.id));
+  }, [params, contacts, dispatch, history, showMess]);
   const inputSendMessage = () => {
     if (newMessage === "" || newMessage === " ") return;
     dispatch(sendMessage({ id: messageHistory.id, newMessage: { author: false, date: Date.now(), message: newMessage } }));
@@ -43,14 +47,25 @@ const Message = ({ match }) => {
       {Object.keys(messageHistory).length > 0 && (
         <>
           <div className={styles.message}>
+            {showMess.showMess && windowSize < 746 && (
+              <div
+                className={styles.goBack}
+                onClick={() => {
+                  history.push(`/chat/`);
+                  showMess.setShowMess(false);
+                }}
+              >
+                <Icons.Back size="50" />
+              </div>
+            )}
             <div className={styles.photo}>
               {messageHistory.photo ? <img src={messageHistory.photo} alt={messageHistory.name} width="100%" /> : <Icons.NoAvatar size="50" />}
               <Icons.Status className={styles.status} fill={messageHistory.status ? "green" : "red"} size="15" />
             </div>
             <h3 className={styles.profileName}>{messageHistory.name}</h3>
             <div className={styles.options}>
-              <Icons.Clear size={50} onClick={() => dispatch(deleteContactHistory(messageHistory.id))} />
-              <Icons.Remove size={50} onClick={() => dispatch(deleteContact(messageHistory.id))} />
+              <Icons.Clear size="50" onClick={() => dispatch(deleteContactHistory(messageHistory.id))} />
+              <Icons.Remove size="50" onClick={() => dispatch(deleteContact(messageHistory.id))} />
             </div>
           </div>
           <div className={styles.messagesHistory}>
@@ -87,3 +102,10 @@ const Message = ({ match }) => {
 };
 
 export default Message;
+
+Message.propTypes = {
+  showMess: PropTypes.shape({
+    showMess: PropTypes.bool.isRequired,
+    setShowMess: PropTypes.func.isRequired,
+  }).isRequired,
+};

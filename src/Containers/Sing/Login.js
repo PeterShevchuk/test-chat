@@ -27,7 +27,7 @@ const Login = () => {
     <div className={styles.sing}>
       <div className={styles.authWrapper}>
         <GoogleLogin clientId={CLIENT_ID} buttonText="Login with google" onSuccess={loginSuccessGoogle} onFailure={errorLogin} cookiePolicy={"single_host_origin"} />
-        <FacebookLoginWithButton appId="3466653746750592" fields="name,email,picture" callback={loginFacebook} icon="fa-facebook" />
+        <FacebookLoginWithButton className={styles.facebook} appId="3466653746750592" fields="name,email,picture" callback={loginFacebook} icon="fa-facebook" />
       </div>
     </div>
   );

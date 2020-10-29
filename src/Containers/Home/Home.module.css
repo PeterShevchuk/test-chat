@@ -5,8 +5,13 @@
   min-width: 320px;
   max-width: 756px;
   height: 100vh;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-rows: auto auto 1fr;
   grid-template-rows: auto auto 1fr;
+}
+.left.showMess {
+  display: none;
 }
 .leftTop {
   padding: 20px;
@@ -15,8 +20,14 @@
 }
 .profile {
   margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .profileName {
@@ -30,9 +41,10 @@
   border-radius: 20px;
   width: 100%;
 }
-.right {
+.right.showMess {
   display: none;
 }
+
 .title {
   padding: 40px;
 }
@@ -51,17 +63,31 @@
 }
 .chooseContact {
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 .exitButton {
   margin-left: auto;
 }
+.displayNon {
+  display: none;
+}
+.displayShow {
+  display: block;
+}
 @media (min-width: 747px) {
   .home {
     width: 100%;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 400px 1fr;
     grid-template-columns: 400px 1fr;
   }
   .left {
@@ -69,7 +95,9 @@
   }
   .right {
     max-height: 100vh;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-rows: auto 1fr auto;
     grid-template-rows: auto 1fr auto;
   }
 }

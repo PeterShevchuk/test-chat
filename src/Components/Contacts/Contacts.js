@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
 import { setNewContact } from "../../Redux/Slice";
 import { navigation, parseDate, randomId } from "../../vars";
 
 import Icons from "../../Components/SVG/svg";
 import styles from "./Contacts.module.css";
-const Contacts = ({ contacts, filter }) => {
+const Contacts = ({ filter }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sortContacts = () => [...contacts].sort((a, b) => (b.history[b.history.length - 1] ? b.history[b.history.length - 1].date : b.addDate) - (a.history[a.history.length - 1] ? a.history[a.history.length - 1].date : a.addDate));
+  const sortContacts = () => [...filter.contacts].sort((a, b) => (b.history[b.history.length - 1] ? b.history[b.history.length - 1].date : b.addDate) - (a.history[a.history.length - 1] ? a.history[a.history.length - 1].date : a.addDate));
   const addNewContact = async () => {
     const newContactId = randomId();
     filter.setSearch("");
@@ -19,7 +20,7 @@ const Contacts = ({ contacts, filter }) => {
   };
   return (
     <div className={styles.contacts}>
-      {contacts.length ? (
+      {filter.contacts.length ? (
         sortContacts().map((item) => (
           <NavLink key={item.id} to={`${navigation.home + "/" + item.id}`} exact className={styles.contact + (item.newNotification ? " " + styles.newNotification : "")} activeClassName={styles.active}>
             <div className={styles.photo}>
@@ -46,3 +47,11 @@ const Contacts = ({ contacts, filter }) => {
 };
 
 export default Contacts;
+
+Contacts.propTypes = {
+  filter: PropTypes.shape({
+    search: PropTypes.string,
+    setSearch: PropTypes.func.isRequired,
+    contacts: PropTypes.array.isRequired,
+  }).isRequired,
+};

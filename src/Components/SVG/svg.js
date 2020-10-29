@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./svg.css";
 
@@ -6,13 +7,13 @@ const initialSize = "24";
 const initialFill = "#000000";
 
 const Icons = {
-  Status: ({ size = initialSize, className = "Status", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width={size} height={size} {...props}>
+  Status: ({ size = initialSize, className = "Status", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width={size} height={size}>
       <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z" />
     </svg>
   ),
-  NoAvatar: ({ size = initialSize, className = "NoAvatar", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size} {...props}>
+  NoAvatar: ({ size = initialSize, className = "NoAvatar", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size}>
       <path
         d="M511.676,498.752l-12.8-51.2c-6.073-24.838-24.485-44.813-48.747-52.885l-93.867-31.275
 	c-22.891-9.536-33.365-46.4-35.627-60.395c17.442-14.504,28.665-35.14,31.36-57.664c-0.385-3.847,0.523-7.713,2.581-10.987
@@ -26,15 +27,15 @@ const Icons = {
       />
     </svg>
   ),
-  Send: ({ size = initialSize, className = "Send", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448" width={size} height={size} {...props}>
+  Send: ({ size = initialSize, className = "Send", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448" width={size} height={size}>
       <g>
         <polygon points="0.213,32 0,181.333 320,224 0,266.667 0.213,416 448,224 		" />
       </g>
     </svg>
   ),
-  Remove: ({ size = initialSize, className = "Remove", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size} {...props}>
+  Remove: ({ size = initialSize, className = "Remove", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size}>
       <path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" />
       <path
         d="m350.273438 320.105469c8.339843 8.34375 8.339843 21.824219 0 30.167969-4.160157 4.160156-9.621094 6.25-15.085938 6.25-5.460938 0-10.921875-2.089844-15.082031-6.25l-64.105469-64.109376-64.105469 64.109376c-4.160156 4.160156-9.621093 6.25-15.082031 6.25-5.464844 0-10.925781-2.089844-15.085938-6.25-8.339843-8.34375-8.339843-21.824219 0-30.167969l64.109376-64.105469-64.109376-64.105469c-8.339843-8.34375-8.339843-21.824219 0-30.167969 8.34375-8.339843 21.824219-8.339843 30.167969 0l64.105469 64.109376 64.105469-64.109376c8.34375-8.339843 21.824219-8.339843 30.167969 0 8.339843 8.34375 8.339843 21.824219 0 30.167969l-64.109376 64.105469zm0 0"
@@ -42,8 +43,8 @@ const Icons = {
       />
     </svg>
   ),
-  Clear: ({ size = initialSize, className = "Clear", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size} {...props}>
+  Clear: ({ size = initialSize, className = "Clear", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size}>
       <g>
         <path d="m180.602 242.734h171.097v84.913h-171.097z" transform="matrix(.707 -.707 .707 .707 -123.707 271.727)" />
         <path d="m99.025 160.701h171.097v85.824h-171.097z" transform="matrix(.707 -.707 .707 .707 -89.916 190.15)" />
@@ -53,11 +54,57 @@ const Icons = {
       </g>
     </svg>
   ),
-  Exit: ({ size = initialSize, className = "Exit", fill = initialFill, ...props }) => (
-    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size} {...props}>
+  Exit: ({ size = initialSize, className = "Exit", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width={size} height={size}>
       <path d="m361.5 392v40c0 44.113281-35.886719 80-80 80h-201c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h201c44.113281 0 80 35.886719 80 80v40c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-40c0-22.054688-17.945312-40-40-40h-201c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h201c22.054688 0 40-17.945312 40-40v-40c0-11.046875 8.953125-20 20-20s20 8.953125 20 20zm136.355469-170.355469-44.785157-44.785156c-7.8125-7.8125-20.476562-7.8125-28.285156 0-7.8125 7.808594-7.8125 20.472656 0 28.28125l31.855469 31.859375h-240.140625c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h240.140625l-31.855469 31.859375c-7.8125 7.808594-7.8125 20.472656 0 28.28125 3.90625 3.90625 9.023438 5.859375 14.140625 5.859375 5.121094 0 10.238281-1.953125 14.144531-5.859375l44.785157-44.785156c19.496093-19.496094 19.496093-51.214844 0-70.710938zm0 0" />
+    </svg>
+  ),
+  Back: ({ size = initialSize, className = "Back", fill = initialFill }) => (
+    <svg className={"svg " + className} fill={fill} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 492" width={size} height={size}>
+      <path
+        d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12
+			C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084
+			c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864
+			l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"
+      />
     </svg>
   ),
 };
 
 export default Icons;
+
+Icons.Status.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.NoAvatar.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.Send.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.Remove.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.Clear.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.Exit.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};
+Icons.Back.propTypes = {
+  size: PropTypes.string,
+  className: PropTypes.string,
+  fill: PropTypes.string,
+};

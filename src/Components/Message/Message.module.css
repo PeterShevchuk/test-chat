@@ -1,8 +1,12 @@
-/* Message */
-
 .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 30px 20px;
   border-bottom: 1px solid #cccccc;
@@ -18,8 +22,14 @@
   width: 100%;
   border: 1px solid #cccccc;
   border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0 22px;
 }
@@ -61,6 +71,8 @@
 }
 .messageSend {
   fill: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 .messageSend:hover {
@@ -73,7 +85,9 @@
   margin-bottom: 20px;
 }
 .messagesHistoryMessAuthor {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 50px 10px 1fr;
   grid-template-columns: 50px 1fr;
   grid-gap: 0 10px;
   text-align: left;
@@ -111,5 +125,8 @@
   cursor: pointer;
 }
 .options > *:first-child {
+  margin-right: 20px;
+}
+.goBack {
   margin-right: 20px;
 }

@@ -23,7 +23,7 @@ const sessionSlice = createSlice({
 });
 
 const initialStateGlobal = {
-  windowSize: 0,
+  windowSize: window.innerWidth,
 };
 const globalSlice = createSlice({
   name: "global",

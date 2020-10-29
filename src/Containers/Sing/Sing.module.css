@@ -1,18 +1,28 @@
 .sing {
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 .authWrapper {
   background-color: #fff;
   padding: 54px 30px 52px;
   width: 300px;
+  -webkit-box-shadow: 10px 17.321px 40px 0px rgba(107, 125, 131, 0.3);
   box-shadow: 10px 17.321px 40px 0px rgba(107, 125, 131, 0.3);
   border-radius: 4px;
+  text-align: center;
 }
-
+.authWrapper > *:not(:last-child) {
+  margin-bottom: 20px;
+}
 .descr {
   margin: 0 auto;
   font-size: 11px;
@@ -29,10 +39,31 @@
   padding-left: 27px;
   font-size: 14px;
 }
-
+.facebook {
+  background-color: rgb(255, 255, 255);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  padding: 0px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+}
 .field {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 20px;
   background-color: #f5f7fa;
@@ -46,9 +77,12 @@
   border: none;
   background-color: #fff;
   text-transform: uppercase;
+  -webkit-box-shadow: 1px 2px 3px rgba(170, 178, 197, 0.29);
   box-shadow: 1px 2px 3px rgba(170, 178, 197, 0.29);
   color: #52555f;
   background-color: #f5f7fa;
+  -webkit-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
